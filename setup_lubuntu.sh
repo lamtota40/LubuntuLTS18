@@ -11,8 +11,9 @@ sudo add-apt-repository -y ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox -y
 
+sudo apt install xrdp -y
 echo "startlxde" > ~/.xsession
-
+sudo adduser xrdp ssl-cert
 
 sudo apt autoremove -y
 sudo systemctl stop lightdm
