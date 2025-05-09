@@ -2,7 +2,7 @@
 
 sudo apt update && sudo apt upgrade
 sudo apt install openssh-server -y
-sudo apt install cpu-x -y
+sudo apt install cpu-x zsh -y
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
 
