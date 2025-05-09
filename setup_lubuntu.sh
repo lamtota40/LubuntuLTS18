@@ -8,8 +8,10 @@ sudo snap install notepad-plus-plus
 
 sudo pkill firefox || true
 sudo add-apt-repository -y ppa:mozillateam/ppa
+sudo add-apt-repository ppa:lubuntu-desktop/ppa
 sudo apt update
-    
+
+sudo apt-get install lubuntu-software-center
 sudo apt install firefox -y
 
 sudo apt autoremove -y
