@@ -11,6 +11,9 @@ sudo add-apt-repository -y ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox -y
 
+echo "startlxde" > ~/.xsession
+
+
 sudo apt autoremove -y
 sudo systemctl stop lightdm
 sudo systemctl disable lightdm
