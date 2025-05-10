@@ -44,6 +44,10 @@ ExecStop=/usr/bin/vncserver -kill :*
 WantedBy=multi-user.target
 EOF
 
-#sudo systemctl daemon-reload
-#sudo systemctl enable vncserver@1.service
-#sudo systemctl start vncserver@1.service
+rm -f /root/.vnc/*.pid
+rm -f /root/.vnc/*.log
+rm -f /root/.vnc/*.sock
+
+sudo systemctl daemon-reload
+sudo systemctl enable vncserver@1.service
+sudo systemctl start vncserver@1.service
