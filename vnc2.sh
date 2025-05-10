@@ -1,11 +1,15 @@
 #!/bin/bash
 
+sudo apt update && sudo apt upgrade -y
 sudo apt install tigervnc-standalone-server -y
 sudo apt install -y net-tools
 sudo apt install lxde-core lxterminal xfonts-base -y
 
-
-vncserver
+vncserver ---pretend-input-tty <<EOF
+pas123
+pas123
+n
+EOF
 vncserver -kill :*
 
 mkdir -p /root/.vnc
@@ -35,6 +39,8 @@ ExecStop=/usr/bin/vncserver -kill :%i
 [Install]
 WantedBy=multi-user.target
 EOF
+
+vncserver -kill :*
 
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@1.service
