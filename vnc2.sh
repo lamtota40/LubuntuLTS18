@@ -2,7 +2,7 @@
 
 sudo apt install tigervnc-standalone-server -y
 sudo apt install -y net-tools
-sudo apt install lxde -y
+sudo apt install lxde-core lxterminal xfonts-base -y
 
 
 vncserver
