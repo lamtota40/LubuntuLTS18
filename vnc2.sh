@@ -6,7 +6,7 @@ echo "gdm3 shared/default-x-display-manager select gdm3" | sudo debconf-set-sele
 hostnamectl set-hostname ubuntu
 sudo apt update && sudo apt upgrade -y
 sudo apt install tigervnc-standalone-server -y
-sudo apt install -y net-tools
+sudo apt-get install -y gdm3
 sudo apt install lxde-core lxterminal xfonts-base -y
 
 vncserver ---pretend-input-tty <<EOF
