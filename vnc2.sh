@@ -6,7 +6,7 @@ sudo apt install lxde-core lxterminal xfonts-base -y
 
 
 vncserver
-vncserver -kill :1
+vncserver -kill :*
 
 mkdir -p /root/.vnc
 
