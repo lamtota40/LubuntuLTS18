@@ -31,7 +31,7 @@ n
 EOF
 
 # 5) Matikan sesi VNC lama & bersihkan cache
-sudo -u "$active_user" vncserver -kill :* 2>/dev/null || true
+sudo vncserver -kill :*
 sudo rm -f "$HOME_DIR/.vnc/"*.pid
 sudo rm -f "$HOME_DIR/.vnc/"*.log
 sudo rm -f "$HOME_DIR/.vnc/"*.sock
