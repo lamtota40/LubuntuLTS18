@@ -35,13 +35,14 @@ sudo vncserver -kill :*
 
 # 6) Buat direktori .vnc jika belum ada dan file xstartup
 mkdir -p "$HOME_DIR/.vnc"
-cat <<EOF > "$HOME_DIR/.vnc/xstartup"
+
+cat <<EOF > ~/.vnc/xstartup
 #!/bin/bash
 xrdb \$HOME/.Xresources
 startlxde &
 EOF
-chmod +x "$HOME_DIR/.vnc/xstartup"
-sudo chown -R "$active_user":"$active_user" "$HOME_DIR/.vnc"
+
+chmod +x ~/.vnc/xstartup
 
 # 7) Buat systemd service untuk vncserver@.service dengan dynamic User
 sudo tee /etc/systemd/system/vncserver@.service > /dev/null <<EOF
