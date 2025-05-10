@@ -54,7 +54,7 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-User=root
+User=%i
 PAMName=login
 PIDFile=%h/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :* > /dev/null 2>&1
