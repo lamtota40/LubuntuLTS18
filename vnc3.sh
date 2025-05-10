@@ -24,7 +24,7 @@ sudo apt install -y lxde-core lxterminal xfonts-base
 sudo apt install -y tigervnc-standalone-server
 
 # 4) Setup password VNC dan buat sesi awal
-sudo -u "$active_user" vncserver --pretend-input-tty <<EOF
+sudo vncserver ---pretend-input-tty <<EOF
 $VNC_PASS
 $VNC_PASS
 n
