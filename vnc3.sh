@@ -30,7 +30,7 @@ $VNC_PASS
 n
 EOF
 
-# 5) Matikan sesi VNC lama & bersihkan cache
+# 5) Matikan semua sesi VNC lama
 sudo vncserver -kill :*
 
 # 6) Buat direktori .vnc jika belum ada dan file xstartup
@@ -62,6 +62,7 @@ ExecStop=/usr/bin/vncserver -kill :*
 WantedBy=multi-user.target
 EOF
 
+# Hapus semua log dan cache
 sudo rm -f "$HOME_DIR/.vnc/"*.pid
 sudo rm -f "$HOME_DIR/.vnc/"*.log
 sudo rm -f "$HOME_DIR/.vnc/"*.sock
