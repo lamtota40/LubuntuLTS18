@@ -3,9 +3,9 @@
 hostnamectl set-hostname ubuntu
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install tigervnc-standalone-server -y
 sudo apt install lxde-core lxterminal xfonts-base -y
 
+sudo apt install tigervnc-standalone-server -y
 vncserver ---pretend-input-tty <<EOF
 pas123
 pas123
