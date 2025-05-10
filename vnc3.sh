@@ -45,7 +45,7 @@ EOF
 chmod +x ~/.vnc/xstartup
 
 # 7) Buat systemd service untuk vncserver@.service dengan dynamic User
-sudo tee /etc/systemd/system/vncserver@.service > /dev/null <<EOF
+cat <<EOF > /etc/systemd/system/vncserver@.service
 [Unit]
 Description=Start TigerVNC server at startup for user $active_user (display :%i)
 After=syslog.target network.target
