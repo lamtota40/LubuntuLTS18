@@ -35,9 +35,9 @@ Type=forking
 User=root
 PAMName=login
 PIDFile=/root/.vnc/%H:%i.pid
-ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
+ExecStartPre=-/usr/bin/vncserver -kill :* > /dev/null 2>&1
 ExecStart=/usr/bin/vncserver -geometry 1024x768 -depth 16 -dpi 96 -localhost no :%i
-ExecStop=/usr/bin/vncserver -kill :%i
+ExecStop=/usr/bin/vncserver -kill :*
 
 [Install]
 WantedBy=multi-user.target
