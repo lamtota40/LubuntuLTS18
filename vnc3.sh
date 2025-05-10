@@ -32,9 +32,6 @@ EOF
 
 # 5) Matikan sesi VNC lama & bersihkan cache
 sudo vncserver -kill :*
-sudo rm -f "$HOME_DIR/.vnc/"*.pid
-sudo rm -f "$HOME_DIR/.vnc/"*.log
-sudo rm -f "$HOME_DIR/.vnc/"*.sock
 
 # 6) Buat direktori .vnc jika belum ada dan file xstartup
 mkdir -p "$HOME_DIR/.vnc"
@@ -64,6 +61,10 @@ ExecStop=/usr/bin/vncserver -kill :*
 [Install]
 WantedBy=multi-user.target
 EOF
+
+sudo rm -f "$HOME_DIR/.vnc/"*.pid
+sudo rm -f "$HOME_DIR/.vnc/"*.log
+sudo rm -f "$HOME_DIR/.vnc/"*.sock
 
 # Reload systemd dan aktifkan service
 sudo systemctl daemon-reload
