@@ -5,7 +5,7 @@ USERNAME="master"
 DISPLAY="1"
 
 echo "[1/6] Install LXDE + TigerVNC..."
-sudo apt-get update
+sudo apt-get update && apt-get upgrade -y
 sudo apt-get install -y tigervnc-standalone-server lxde-core lxterminal xfonts-base
 
 echo "[2/6] Membuat user '$USERNAME' (jika belum ada)..."
