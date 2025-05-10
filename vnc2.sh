@@ -3,6 +3,7 @@
 # Set default display manager to gdm3
 echo "gdm3 shared/default-x-display-manager select gdm3" | sudo debconf-set-selections
 
+hostnamectl set-hostname ubuntu
 sudo apt update && sudo apt upgrade -y
 sudo apt install tigervnc-standalone-server -y
 sudo apt install -y net-tools
