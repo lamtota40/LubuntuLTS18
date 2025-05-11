@@ -16,7 +16,7 @@ hostnamectl set-hostname ubuntu
 sudo apt update && sudo apt upgrade -y
 
 # Install LXDE
-sudo apt install -y lxde-core lxterminal xfonts-base
+sudo apt install -y lxde-core lxterminal xfonts-base lxsession
 
 # Install TigerVNC
 sudo apt install -y tigervnc-standalone-server
