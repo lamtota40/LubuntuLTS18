@@ -48,7 +48,7 @@ After=network.target
 
 [Service]
 Type=forking
-User=$active_user
+User=%u
 PAMName=login
 PIDFile=$HOME_DIR/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
