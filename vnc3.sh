@@ -12,27 +12,18 @@ VNC_PASS="pas123"
 # Ubah hostname (opsional)
 hostnamectl set-hostname ubuntu
 
-# 1) Update & upgrade paket
+# Update & upgrade paket
 sudo apt update && sudo apt upgrade -y
 
-# 2) Install LXDE
+# Install LXDE
 sudo apt install -y lxde-core lxterminal xfonts-base
 
-# 3) Install TigerVNC
+# Install TigerVNC
 sudo apt install -y tigervnc-standalone-server
 
-# 4) Setup password VNC dan buat sesi awal
-sudo vncserver ---pretend-input-tty <<EOF
-$VNC_PASS
-$VNC_PASS
-n
-EOF
-
-# 5) Matikan semua sesi VNC lama
-sudo vncserver -kill :*
-
-# 6) Buat direktori .vnc jika belum ada dan file xstartup
+# Buat direktori .vnc jika belum ada dan file xstartup
 mkdir -p "$HOME_DIR/.vnc"
+touch ~/.Xresources
 
 cat <<EOF > ~/.vnc/xstartup
 #!/bin/bash
@@ -40,9 +31,21 @@ xrdb \$HOME/.Xresources
 startlxde &
 EOF
 
-chmod +x ~/.vnc/xstartup
+chmod +x ~/.vnc/xstartup 
+# Setup password VNC dan buat sesi awal
+sudo vncserver ---pretend-input-tty <<EOF
+$VNC_PASS
+$VNC_PASS
+n
+EOF
 
-# 7) Buat systemd service untuk vncserver@.service dengan dynamic User
+# Matikan semua sesi VNC lama & Hapus semua log dan cache
+sudo vncserver -kill :*
+sudo rm -f "$HOME_DIR/.vnc/"*.pid
+sudo rm -f "$HOME_DIR/.vnc/"*.log
+sudo rm -f "$HOME_DIR/.vnc/"*.sock
+
+# Buat systemd service untuk vncserver@.service dengan dynamic User
 cat <<EOF > /etc/systemd/system/vncserver@.service
 [Unit]
 Description=Start TigerVNC server at startup for user $active_user (display :%i)
@@ -60,11 +63,6 @@ ExecStop=/usr/bin/vncserver -kill :*
 [Install]
 WantedBy=multi-user.target
 EOF
-
-# Hapus semua log dan cache
-sudo rm -f "$HOME_DIR/.vnc/"*.pid
-sudo rm -f "$HOME_DIR/.vnc/"*.log
-sudo rm -f "$HOME_DIR/.vnc/"*.sock
 
 # Reload systemd dan aktifkan service
 sudo systemctl daemon-reload
