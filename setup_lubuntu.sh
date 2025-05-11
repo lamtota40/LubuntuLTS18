@@ -2,6 +2,7 @@
 
 sudo apt update && sudo apt upgrade
 sudo apt install openssh-server -y
+sudo apt install matchbox-keyboard -y
 sudo apt install snapd zsh -y
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
