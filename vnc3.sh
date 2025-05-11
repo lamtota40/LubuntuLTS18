@@ -45,7 +45,7 @@ sudo rm -f "$HOME_DIR/.vnc/"*.log
 sudo rm -f "$HOME_DIR/.vnc/"*.sock
 
 # Buat systemd service untuk vncserver@.service dengan dynamic User
-cat <<EOF > /etc/systemd/system/vncserver@.service
+sudo tee /etc/systemd/system/vncserver@.service > /dev/null <<EOF
 [Unit]
 Description=Start TigerVNC server at startup for user $active_user (display :%i)
 After=syslog.target network.target
