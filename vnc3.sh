@@ -3,8 +3,6 @@
 # Nama script: setup_vnc_lxde.sh
 # Deskripsi: Install LXDE & TigerVNC; setup VNC server di display :1
 
-set -e
-
 # Gunakan logname untuk mendapatkan user yang menjalankan skrip
 active_user="$(logname)"
 HOME_DIR="$(eval echo ~$active_user)"
