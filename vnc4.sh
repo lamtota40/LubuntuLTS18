@@ -1,42 +1,12 @@
 #!/bin/bash
 
-# Nama script: setup_vnc_lxde.sh
-# Deskripsi: Install LXDE & TigerVNC; setup VNC server di display :1
-
-# Gunakan logname untuk mendapatkan user yang menjalankan skrip
 VNC_PASS="pas123"
 DISPLAY_NUM=1
 active_user="$(logname)"
 HOME_DIR="$(eval echo ~$active_user)"
 
-# Install TigerVNC
-sudo apt install -y tigervnc-standalone-server
-
-# Buat direktori .vnc jika belum ada dan file xstartup
-mkdir -p "$HOME_DIR/.vnc"
-
-cat <<EOF > ~/.vnc/xstartup
-#!/bin/bash
-xrdb \$HOME/.Xresources
-startlxde &
-EOF
-
-chmod +x ~/.vnc/xstartup 
-# Setup password VNC dan buat sesi awal
-sudo vncserver ---pretend-input-tty <<EOF
-$VNC_PASS
-$VNC_PASS
-n
-EOF
-
-# Matikan semua sesi VNC lama & Hapus semua log dan cache
-sudo vncserver -kill :*
-sudo rm -f "$HOME_DIR/.vnc/"*.pid
-sudo rm -f "$HOME_DIR/.vnc/"*.log
-sudo rm -f "$HOME_DIR/.vnc/"*.sock
-
 # Buat systemd service untuk vncserver@.service dengan dynamic User
-cat <<EOF > /etc/systemd/system/vncserver@.service
+sudo tee /etc/systemd/system/vncserver@.service > /dev/null <<EOF
 [Unit]
 Description=Start TigerVNC server at startup for user $active_user (display :%i)
 After=syslog.target network.target
