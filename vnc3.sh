@@ -73,6 +73,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable "vncserver@$DISPLAY_NUM.service"
 sudo systemctl start "vncserver@$DISPLAY_NUM.service"
 
-echo
-s="✅ VNC server untuk user $active_user sudah aktif di display :$DISPLAY_NUM"
+echo "VNC server untuk user $active_user sudah aktif di display :$DISPLAY_NUM"
 echo "$s (port $((5900 + DISPLAY_NUM))) dengan password: $VNC_PASS"
