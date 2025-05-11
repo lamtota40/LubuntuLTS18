@@ -56,7 +56,8 @@ User=$active_user
 PAMName=login
 PIDFile=$HOME_DIR/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :* > /dev/null 2>&1
-ExecStart=/usr/bin/vncserver :%i -geometry 1024x768 -depth 16 -dpi 96 -localhost no
+ExecStart=/usr/bin/vncserver :%i -geometry 1024x768 -depth 16 -dpi 96 -localhost no -IdleTimeout=300
+
 ExecStop=/usr/bin/vncserver -kill :*
 
 [Install]
