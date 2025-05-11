@@ -25,9 +25,11 @@ sudo apt install -y tigervnc-standalone-server
 mkdir -p "$HOME_DIR/.vnc"
 
 cat <<EOF > ~/.vnc/xstartup
-#!/bin/bash
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
 xrdb \$HOME/.Xresources
-startlxde &
+lxsession -s Lubuntu -e LXDE &
 EOF
 
 chmod +x ~/.vnc/xstartup 
