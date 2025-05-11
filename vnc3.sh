@@ -4,10 +4,10 @@
 # Deskripsi: Install LXDE & TigerVNC; setup VNC server di display :1
 
 # Gunakan logname untuk mendapatkan user yang menjalankan skrip
+VNC_PASS="pas123"
+DISPLAY_NUM=1
 active_user="$(logname)"
 HOME_DIR="$(eval echo ~$active_user)"
-DISPLAY_NUM=1
-VNC_PASS="pas123"
 
 # Ubah hostname (opsional)
 hostnamectl set-hostname ubuntu
@@ -23,7 +23,6 @@ sudo apt install -y tigervnc-standalone-server
 
 # Buat direktori .vnc jika belum ada dan file xstartup
 mkdir -p "$HOME_DIR/.vnc"
-touch ~/.Xresources
 
 cat <<EOF > ~/.vnc/xstartup
 #!/bin/bash
