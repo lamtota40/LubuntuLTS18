@@ -71,3 +71,12 @@ sudo systemctl start "vncserver@$DISPLAY_NUM.service"
 
 echo "VNC server untuk user $active_user sudah aktif di display :$DISPLAY_NUM"
 echo "$s (port $((5900 + DISPLAY_NUM))) dengan password: $VNC_PASS"
+
+
+sudo chown lubuntu:lubuntu /home/lubuntu/.vnc/passwd
+sudo chmod 600 /home/lubuntu/.vnc/passwd
+sudo rm -f /home/lubuntu/.Xauthority
+sudo touch /home/lubuntu/.Xauthority
+sudo chown lubuntu:lubuntu /home/lubuntu/.Xauthority
+sudo chmod 600 /home/lubuntu/.Xauthority
+
