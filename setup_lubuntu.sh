@@ -1,9 +1,10 @@
 #!/bin/bash
 
 VNC_PASS="pas123"
+active_user="$(logname)"
+HOME_DIR="$(eval echo ~$active_user)"
 
 sudo apt update && sudo apt upgrade
-sudo apt install openssh-server -y
 sudo apt install -y matchbox-keyboard gparted snapd zsh
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
@@ -29,7 +30,7 @@ Description=VNC Server for X11
 Requires=display-manager.service
 
 [Service]
-ExecStart=/usr/bin/x11vnc -display :0 -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/USERNAME/.vnc/passwd -rfbport 5900 -shared
+ExecStart=/usr/bin/x11vnc -display :0 -auth guess -forever -loop -noxdamage -repeat -rfbauth $HOME_DIR/.vnc/passwd -rfbport 5900 -shared
 ExecStop=/usr/bin/killall x11vnc
 Restart=on-failure
 RestartSec=2
