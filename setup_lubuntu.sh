@@ -4,7 +4,6 @@ VNC_PASS="pas123"
 active_user="$(logname)"
 HOME_DIR="$(eval echo ~$active_user)"
 
-sudo apt update && sudo apt upgrade
 sudo apt install -y matchbox-keyboard gparted snapd zsh
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
