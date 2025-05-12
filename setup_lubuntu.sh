@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VNC_PASS="pas123"
+
 sudo apt update && sudo apt upgrade
 sudo apt install openssh-server -y
 sudo apt install -y matchbox-keyboard gparted
@@ -17,7 +19,11 @@ sudo dpkg-reconfigure lightdm
 cat /etc/X11/default-display-manager
 sudo apt remove gdm3 -y
 sudo apt install x11vnc net-tools
-x11vnc -storepasswd
+x11vnc -storepasswd <<EOF
+$VNC_PASS
+$VNC_PASS
+y
+EOF
 sudo tee /etc/systemd/system/x11vnc.service > /dev/null <<EOF
 [Unit]
 Description=VNC Server for X11
