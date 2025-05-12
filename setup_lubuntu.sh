@@ -17,7 +17,7 @@ sudo apt install lightdm -y
 sudo dpkg-reconfigure lightdm
 cat /etc/X11/default-display-manager
 sudo apt remove gdm3 -y
-sudo apt install x11vnc net-tools
+sudo apt install x11vnc net-tools -y
 x11vnc -storepasswd <<EOF
 $VNC_PASS
 $VNC_PASS
