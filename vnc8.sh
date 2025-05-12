@@ -33,8 +33,12 @@ sudo -u "$active_user" touch "$HOME_DIR/.Xauthority"
 sudo chown "$active_user:$active_user" "$HOME_DIR/.Xauthority"
 sudo chmod 600 "$HOME_DIR/.Xauthority"
 
-# Setup password VNC
-sudo -u "$active_user" bash -c "echo -e \"$VNC_PASS\n$VNC_PASS\nn\" | vncpasswd"
+# Setup password VNC dan buat sesi awal
+sudo vncserver ---pretend-input-tty <<EOF
+$VNC_PASS
+$VNC_PASS
+n
+EOF
 
 # Matikan semua sesi VNC lama & bersihkan
 sudo -u "$active_user" vncserver -kill :*
