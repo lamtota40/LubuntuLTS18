@@ -12,11 +12,11 @@ sudo add-apt-repository -y ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox -y
 
-sudo apt-get install lightdm -y
+sudo apt install lightdm -y
 sudo dpkg-reconfigure lightdm
 cat /etc/X11/default-display-manager
-sudo apt-get remove gdm3 -y
-sudo apt-get install x11vnc net-tools
+sudo apt remove gdm3 -y
+sudo apt install x11vnc net-tools
 x11vnc -storepasswd
 sudo tee /etc/systemd/system/x11vnc.service > /dev/null <<EOF
 [Unit]
