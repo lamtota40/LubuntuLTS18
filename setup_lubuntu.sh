@@ -4,8 +4,7 @@ VNC_PASS="pas123"
 
 sudo apt update && sudo apt upgrade
 sudo apt install openssh-server -y
-sudo apt install -y matchbox-keyboard gparted
-sudo apt install snapd zsh -y
+sudo apt install -y matchbox-keyboard gparted snapd zsh
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
 
