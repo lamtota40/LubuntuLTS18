@@ -12,15 +12,6 @@ sudo add-apt-repository -y ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox -y
 
-sudo apt install xrdp -y
-echo "startlxde" > ~/.xsession
-sudo adduser xrdp ssl-cert
-
-sudo apt autoremove -y
-
-
-
-
 sudo apt-get install lightdm -y
 sudo dpkg-reconfigure lightdm
 cat /etc/X11/default-display-manager
@@ -42,14 +33,11 @@ RestartSec=2
 WantedBy=multi-user.target
 EOF
 
-
 sudo systemctl daemon-reload
 sudo systemctl enable x11vnc
 sudo systemctl start x11vnc
 sudo systemctl status x11vnc
 
-sudo systemctl stop lightdm
-sudo systemctl disable lightdm
-reboot
-
-https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/
+#sudo systemctl stop lightdm
+#sudo systemctl disable lightdm
+#reboot
