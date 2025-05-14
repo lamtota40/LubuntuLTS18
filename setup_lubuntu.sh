@@ -47,7 +47,7 @@ sudo systemctl start x11vnc
 sudo systemctl status x11vnc
 sudo apt remove --purge -y matchbox-keyboard
 
-sudo apt remove --purge -y audacious gnome-mpv libmpv1 gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin transmission-gtk xfburn cups cups-browsed system-config-printer*
+sudo apt remove --purge -y audacious gnome-mpv gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin transmission-gtk xfburn
 sudo apt autoremove -y
 sudo apt clean
 
