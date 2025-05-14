@@ -4,9 +4,12 @@ VNC_PASS="pas123"
 active_user="$(logname)"
 HOME_DIR="$(eval echo ~$active_user)"
 
-sudo apt install -y onboard gparted snapd zsh
+sudo apt install -y vlc onboard gparted snapd zsh
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
+xdg-mime default vlc.desktop video/mp4
+xdg-mime default vlc.desktop video/x-matroska
+
 
 sudo pkill firefox || true
 sudo add-apt-repository -y ppa:mozillateam/ppa
