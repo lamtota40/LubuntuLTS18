@@ -43,7 +43,7 @@ sudo systemctl enable x11vnc
 sudo systemctl start x11vnc
 sudo systemctl status x11vnc
 
-sudo apt remove --purge -y audacious gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin
+sudo apt remove --purge -y audacious gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin transmission-gtk
 sudo apt autoremove -y
 sudo apt clean
 
