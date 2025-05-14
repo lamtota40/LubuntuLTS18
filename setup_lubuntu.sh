@@ -45,6 +45,7 @@ sudo systemctl status x11vnc
 
 sudo apt remove --purge -y audacious gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin
 sudo apt autoremove -y
+sudo apt clean
 
 #sudo systemctl stop lightdm
 #sudo systemctl disable lightdm
