@@ -51,6 +51,9 @@ sudo apt remove --purge -y audacious gnome-mpv gnome-mines gnome-sudoku xpad sim
 sudo apt autoremove -y
 sudo apt clean
 
+sudo systemctl stop cups
+sudo systemctl disable cups
+
 #sudo systemctl stop lightdm
 #sudo systemctl disable lightdm
 #reboot
