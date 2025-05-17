@@ -16,7 +16,7 @@ sudo add-apt-repository -y ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox -y
 
-sudo apt install lightdm -y
+sudo apt install lightdm openbox-lxde-session -y
 sudo dpkg-reconfigure lightdm
 cat /etc/X11/default-display-manager
 sudo apt remove gdm3 -y
@@ -45,7 +45,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable x11vnc
 sudo systemctl start x11vnc
 sudo systemctl status x11vnc
-sudo apt remove --purge -y matchbox-keyboard
+
+echo '[Seat:*]
+autologin-user=lubuntu
+autologin-session=Lubuntu' | sudo tee /etc/lightdm/lightdm.conf > /dev/null
 
 sudo apt remove --purge -y audacious gnome-mpv gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin transmission-gtk xfburn
 sudo apt autoremove -y
