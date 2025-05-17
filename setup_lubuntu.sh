@@ -1,8 +1,6 @@
 #!/bin/bash
 
 VNC_PASS="pas123"
-active_user="$(logname)"
-HOME_DIR="$(eval echo ~$active_user)"
 
 sudo apt install -y vlc onboard gparted snapd zsh telegram-desktop
 sudo snap install snap-store
@@ -32,7 +30,7 @@ Description=VNC Server for X11
 Requires=display-manager.service
 
 [Service]
-ExecStart=/usr/bin/x11vnc -display :0 -auth guess -forever -loop -noxdamage -repeat -rfbauth $HOME_DIR/.vnc/passwd -rfbport 5900 -shared
+ExecStart=/usr/bin/x11vnc -display :0 -auth guess -forever -loop -noxdamage -repeat -rfbauth $HOME/.vnc/passwd -rfbport 5900 -shared
 ExecStop=/usr/bin/killall x11vnc
 Restart=on-failure
 RestartSec=2
