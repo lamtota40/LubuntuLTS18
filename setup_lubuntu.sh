@@ -53,7 +53,7 @@ greeter-session=lightdm-gtk-greeter' | sudo tee /etc/lightdm/lightdm.conf > /dev
 sudo ln -sf /dev/null ~/.xsession-errors
 
 sudo mkdir -p ~/.config/lxsession/Lubuntu
-cat <<EOF > ~/.config/lxsession/Lubuntu/autostart
+sudo tee ~/.config/lxsession/Lubuntu/autostart > /dev/null <<EOF
 @xset s off
 @xset -dpms
 @xset s noblank
