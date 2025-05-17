@@ -2,7 +2,7 @@
 
 VNC_PASS="pas123"
 
-sudo apt install -y vlc onboard gparted snapd zsh telegram-desktop
+sudo apt install -y vlc onboard gparted snapd zsh telegram-desktop curl jq
 sudo snap install snap-store
 sudo snap install notepad-plus-plus
 xdg-mime default vlc.desktop video/mp4
