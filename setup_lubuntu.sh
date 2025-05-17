@@ -41,6 +41,7 @@ RestartSec=2
 WantedBy=multi-user.target
 EOF
 
+sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
 sudo systemctl enable x11vnc
 sudo systemctl start x11vnc
