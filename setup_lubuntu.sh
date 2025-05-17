@@ -50,6 +50,14 @@ echo '[Seat:*]
 autologin-user=lubuntu
 autologin-session=Lubuntu' | sudo tee /etc/lightdm/lightdm.conf > /dev/null
 
+mkdir -p ~/.config/lxsession/Lubuntu && \
+cat <<EOF > ~/.config/lxsession/Lubuntu/autostart
+@xset s off
+@xset -dpms
+@xset s noblank
+EOF
+
+
 sudo apt remove --purge -y audacious gnome-mpv gnome-mines gnome-sudoku xpad simple-scan guvcview lxmusic sylpheed pidgin transmission-gtk xfburn
 sudo apt autoremove -y
 sudo apt clean
