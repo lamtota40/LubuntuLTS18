@@ -47,7 +47,9 @@ sudo systemctl status x11vnc
 
 echo '[Seat:*]
 autologin-user=lubuntu
-autologin-session=Lubuntu' | sudo tee /etc/lightdm/lightdm.conf > /dev/null
+autologin-user-timeout=0
+autologin-session=Lubuntu
+greeter-session=lightdm-gtk-greeter' | sudo tee /etc/lightdm/lightdm.conf > /dev/null
 
 mkdir -p ~/.config/autostart
 echo -e "[Desktop Entry]\nHidden=true" > ~/.config/autostart/xscreensaver.desktop
