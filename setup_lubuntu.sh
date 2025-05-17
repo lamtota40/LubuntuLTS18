@@ -50,7 +50,15 @@ autologin-user=lubuntu
 autologin-user-timeout=0
 autologin-session=Lubuntu
 greeter-session=lightdm-gtk-greeter' | sudo tee /etc/lightdm/lightdm.conf > /dev/null
-ln -sf /dev/null ~/.xsession-errors
+sudo ln -sf /dev/null ~/.xsession-errors
+
+sudo mkdir -p ~/.config/lxsession/Lubuntu
+cat <<EOF > ~/.config/lxsession/Lubuntu/autostart
+@xset s off
+@xset -dpms
+@xset s noblank
+@lxsession -s Lubuntu -e LXDE
+EOF
 
 mkdir -p ~/.config/autostart
 echo -e "[Desktop Entry]\nHidden=true" > ~/.config/autostart/xscreensaver.desktop
